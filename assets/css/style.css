@@ -21,13 +21,14 @@ header h1 {
     position: relative;
     font-size: 42px;
     color: #fff;
-    top: 28px;
+    top: 30%;
     left: 40px;
 }
 
 nav {
     display: flex;
     justify-content: end;
+    align-items: center;
 }
 
 nav h2 {
@@ -37,22 +38,35 @@ nav h2 {
 
 #aboutme {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    column-gap: 10%;
-    margin: 120px;
+    grid-template-columns: 1fr 6fr;
+    grid-template-rows: 400px;
+    column-gap: 2%;
+    margin: 80px;
 }
 
 #aboutme img {
     position: relative;
-    height: 400px;
-    background-color: black;
-    left: 50%;
-    margin-left: -150px;
+    height: 100%;
+    border: 10px solid salmon;
 }
 
 #aboutme p {
-    font-size: 26px;
+    border: 10px solid salmon;
+    font-size: 20px;
     padding: 7%;
+    height: 100%;
+}
+
+#mywork {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 400px 400px;
+    gap: 2%;
+    margin: 80px;
+}
+
+#mywork section {
+    background-color: aqua;
 }
 
 footer {
@@ -61,17 +75,32 @@ footer {
     background-color: #ffa9a9;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (orientation:portrait) {
     #aboutme {
         grid-template-columns: 1fr;
-        gap: 60px;
-        margin: 120px;
+        gap: 10px;
+        margin: 40px;
     }
-    #aboutme p {
-        padding-top: 0%;
+    #aboutme img {
+        left: 50%;
+        margin-left: -150px;
     }
 }
 
 @media screen and (max-width: 768px) {
+    header {
+        height: 80px;
+    }
+    header h1 {
+        font-size: 30px;
+        left: 20px;
+    }
+    nav {
+        padding-bottom: 220px;
+    }
+    nav h2 {
+        font-size: 20px;
+        margin-right: 25px;
+    }
 
 }
