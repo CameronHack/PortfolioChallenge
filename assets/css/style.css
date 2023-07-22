@@ -6,7 +6,7 @@
     --primarycolor: #bdbdbd;
     --secondarycolor: #e7e7e7;
     --complementarycolor: #e49999;
-    --myworkgridheight: 300px;
+    --myworkgridheight: 400px;
     --sectionpadding: 80px;
 }
 
@@ -14,14 +14,25 @@ body {
     background-color: beige;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: var(--complementarycolor);
+    font-size: 110%;
+    transition: 0.5s;
+}
+
 header {
     height: 100px;
-    width: 100%;
     background-color: var(--primarycolor);
 }
 
 header h1 {
     position: relative;
+    display: inline;
     font-size: 42px;
     color: #fff;
     top: 30%;
@@ -32,12 +43,12 @@ header span {
     color: var(--complementarycolor);
 }
 
-header nav {
+header ul {
     display: flex;
     justify-content: end;
 }
 
-nav h2 {
+nav li {
     font-size: 24px;
     padding-right: 40px;
 }
@@ -78,35 +89,34 @@ nav h2 {
 }
 
 footer {
+    height: 200px;
+    width: 100%;
+    background-color: var(--primarycolor);
+    overflow: hidden;
+}
+
+#contact {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px;
     gap: 2%;
-    padding: 80px;
-    padding-top: 5%;
-    height: 200px;
-    width: 100%;
-    background-color: var(--primarycolor);
+    padding: 50px 60px 0 80px;
 }
 
-footer section {
+#contact section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-footer h2 {
-    font-size: 28px;
+#contact h2 {
+    font-size: 36px;
 }
 
-footer h3 {
-    font-size: 18px;
-    padding: 5%;
-}
-
-/* deleteeeeee */
-footer section {
-    background-color: #e49999;
+#contact a,
+#contact h3 {
+    font-size: 22px;
+    padding: 2%;
 }
 
 @media screen and (orientation:portrait) {
@@ -127,6 +137,12 @@ footer section {
         padding-bottom: calc(var(--sectionpadding));
         grid-template-rows: repeat(3, var(--myworkgridheight));
     }
+    #contact {
+        grid-template-columns: 1fr;
+        gap: 0%;
+        padding: 10px 0 0 0;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
@@ -137,7 +153,7 @@ footer section {
         font-size: 30px;
         left: 20px;
     }
-    nav h2 {
+    nav li {
         font-size: 20px;
         padding-right: 25px;
     }
