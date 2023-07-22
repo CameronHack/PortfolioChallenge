@@ -3,8 +3,11 @@
 }
 
 :root {
-    --primarycolor: #7c7c7c;
-    --secondarycolor: #b8b8b8;
+    --primarycolor: #bdbdbd;
+    --secondarycolor: #e7e7e7;
+    --complementarycolor: #e49999;
+    --myworkgridheight: 300px;
+    --sectionpadding: 80px;
 }
 
 body {
@@ -25,23 +28,30 @@ header h1 {
     left: 40px;
 }
 
-nav {
+header span {
+    color: var(--complementarycolor);
+}
+
+header nav {
     display: flex;
     justify-content: end;
-    align-items: center;
 }
 
 nav h2 {
     font-size: 24px;
-    margin-right: 40px;
+    padding-right: 40px;
+}
+
+#aboutme,
+#mywork {
+    display: grid;
+    gap: 2%;
+    padding: 80px;
 }
 
 #aboutme {
-    display: grid;
     grid-template-columns: 1fr 6fr;
     grid-template-rows: 400px;
-    column-gap: 2%;
-    margin: 80px;
 }
 
 #aboutme img {
@@ -58,32 +68,64 @@ nav h2 {
 }
 
 #mywork {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 400px 400px;
-    gap: 2%;
-    margin: 80px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, var(--myworkgridheight));
+    padding-top: 0px;
 }
 
 #mywork section {
-    background-color: aqua;
+    background-color: var(--secondarycolor);
 }
 
 footer {
-    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 100px;
+    gap: 2%;
+    padding: 80px;
+    padding-top: 5%;
+    height: 200px;
     width: 100%;
-    background-color: #ffa9a9;
+    background-color: var(--primarycolor);
+}
+
+footer section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer h2 {
+    font-size: 28px;
+}
+
+footer h3 {
+    font-size: 18px;
+    padding: 5%;
+}
+
+/* deleteeeeee */
+footer section {
+    background-color: #e49999;
 }
 
 @media screen and (orientation:portrait) {
+    #aboutme,
+    #mywork {
+        padding: calc(var(--sectionpadding)/2);
+    }
     #aboutme {
         grid-template-columns: 1fr;
         gap: 10px;
-        margin: 40px;
+        padding-bottom: 0;
     }
     #aboutme img {
-        left: 50%;
-        margin-left: -150px;
+        left: calc(50% - 150px);
+    }
+    #mywork {
+        grid-template-columns: 1fr 1fr;
+        padding-bottom: calc(var(--sectionpadding));
+        grid-template-rows: repeat(3, var(--myworkgridheight));
     }
 }
 
@@ -95,12 +137,13 @@ footer {
         font-size: 30px;
         left: 20px;
     }
-    nav {
-        padding-bottom: 220px;
-    }
     nav h2 {
         font-size: 20px;
-        margin-right: 25px;
+        padding-right: 25px;
     }
-
+    #mywork {
+        grid-template-columns: 1fr;
+        padding-bottom: calc(var(--sectionpadding)*3);
+        grid-template-rows: repeat(6, var(--myworkgridheight));
+    }
 }
