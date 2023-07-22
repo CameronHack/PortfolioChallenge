@@ -8,6 +8,7 @@
     --complementarycolor: #e49999;
     --myworkgridheight: 400px;
     --sectionpadding: 80px;
+    --globalborder: 8px solid #c25044;
 }
 
 body {
@@ -53,14 +54,10 @@ nav li {
     padding-right: 40px;
 }
 
-#aboutme,
-#mywork {
+#aboutme {
     display: grid;
     gap: 2%;
     padding: 80px;
-}
-
-#aboutme {
     grid-template-columns: 1fr 6fr;
     grid-template-rows: 400px;
 }
@@ -68,23 +65,38 @@ nav li {
 #aboutme img {
     position: relative;
     height: 100%;
-    border: 10px solid salmon;
+    border: var(--globalborder);
 }
 
 #aboutme p {
-    border: 10px solid salmon;
+    border: var(--globalborder);
     font-size: 20px;
     padding: 7%;
     height: 100%;
 }
 
-#mywork {
-    grid-template-columns: repeat(3, 1fr);
+.firstwork,
+.secondarywork {
+    position: relative;
+}
+
+.firstwork {
+    height: 600px;
+    margin: 0 80px 20px 80px;
+}
+
+.secondarywork {
+    display: grid;
+    gap: 2%;
+    padding: 80px;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, var(--myworkgridheight));
     padding-top: 0px;
 }
 
-#mywork section {
+.firstwork,
+.secondarywork section {
+    border: var(--globalborder);
     background-color: var(--secondarycolor);
 }
 
@@ -110,7 +122,7 @@ footer {
 }
 
 #contact h2 {
-    font-size: 36px;
+    font-size: 48px;
 }
 
 #contact a,
