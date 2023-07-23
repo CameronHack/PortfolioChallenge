@@ -62,11 +62,12 @@ nav li {
     padding-right: 40px;
 }
 
-/* about me stays main focus on landscape due to gridheight variable happy with the turnout dont change */
+/* about me stays main focus on landscape due to gridheight variable happy with the turnout DONT CHANGE */
 #aboutme {
     display: grid;
-    gap: 2%;
+    gap: calc(var(--sectionpadding)/2);
     padding: var(--sectionpadding);
+    /* 6fr is probably unnecessary although works as intended */
     grid-template-columns: 1fr 6fr;
     grid-template-rows: var(--gridheight);
 }
