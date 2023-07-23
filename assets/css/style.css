@@ -3,18 +3,21 @@
 }
 
 :root {
+    /* color pallet */
     --primarycolor: #bdbdbd;
     --secondarycolor: #e7e7e7;
-    --complementarycolor: #e49999;
-    --myworkgridheight: 400px;
+    --complementarycolor: #8992e7;
+    /* grid height relative to view width */
+    --myworkgridheight: 30vw;
     --sectionpadding: 80px;
-    --globalborder: 8px solid #c25044;
+    --globalborder: 8px solid var(--complementarycolor);
 }
 
 body {
     background-color: beige;
 }
 
+/*  */
 a {
     text-decoration: none;
     color: #fff;
@@ -50,16 +53,16 @@ header ul {
 }
 
 nav li {
-    font-size: 24px;
+    font-size: 28px;
     padding-right: 40px;
 }
 
 #aboutme {
     display: grid;
     gap: 2%;
-    padding: 80px;
+    padding: var(--sectionpadding);
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: 400px;
+    grid-template-rows: var(--myworkgridheight);
 }
 
 #aboutme img {
@@ -75,23 +78,25 @@ nav li {
     height: 100%;
 }
 
+#mywork {
+    padding: 0 var(--sectionpadding);
+}
+
 .firstwork,
 .secondarywork {
     position: relative;
 }
 
 .firstwork {
-    height: 600px;
-    margin: 0 80px 20px 80px;
+    height: var(--myworkgridheight);
 }
 
 .secondarywork {
     display: grid;
-    gap: 2%;
-    padding: 80px;
+    gap: calc(var(--sectionpadding)/2);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, var(--myworkgridheight));
-    padding-top: 0px;
+    padding: calc(var(--sectionpadding)/2) 0;
 }
 
 .firstwork,
@@ -104,14 +109,17 @@ footer {
     height: 200px;
     width: 100%;
     background-color: var(--primarycolor);
-    overflow: hidden;
+}
+
+footer h2,
+footer h3 {
+    color: #fff;
 }
 
 #contact {
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 100px;
-    gap: 2%;
     padding: 50px 60px 0 80px;
 }
 
@@ -132,29 +140,29 @@ footer {
 }
 
 @media screen and (orientation:portrait) {
+    nav li {
+        font-size: 24px;
+        padding-right: 30px;
+    }
     #aboutme,
     #mywork {
         padding: calc(var(--sectionpadding)/2);
     }
     #aboutme {
         grid-template-columns: 1fr;
-        gap: 10px;
-        padding-bottom: 0;
+        grid-template-rows: 400px;
     }
     #aboutme img {
-        left: calc(50% - 150px);
+        margin-left: calc(50% - 150px);
     }
-    #mywork {
-        grid-template-columns: 1fr 1fr;
-        padding-bottom: calc(var(--sectionpadding));
-        grid-template-rows: repeat(3, var(--myworkgridheight));
+    .secondarywork {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, var(--myworkgridheight));
     }
     #contact {
         grid-template-columns: 1fr;
-        gap: 0%;
         padding: 10px 0 0 0;
     }
-    
 }
 
 @media screen and (max-width: 768px) {
@@ -168,10 +176,5 @@ footer {
     nav li {
         font-size: 20px;
         padding-right: 25px;
-    }
-    #mywork {
-        grid-template-columns: 1fr;
-        padding-bottom: calc(var(--sectionpadding)*3);
-        grid-template-rows: repeat(6, var(--myworkgridheight));
     }
 }
