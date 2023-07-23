@@ -4,17 +4,26 @@
 
 :root {
     /* color pallet */
-    --primarycolor: #bdbdbd;
-    --secondarycolor: #e7e7e7;
+    --primarycolor: #202f3a;
+    --secondarycolor: #383838;
     --complementarycolor: #8992e7;
     /* grid height relative to view width */
     --gridheight: 30vw;
     --sectionpadding: 80px;
-    --globalborder: 8px solid #6b6b6b;
+    --globalborder: 8px solid #161616;
 }
 
 body {
-    background-color: beige;
+    background-color: #1f1f1f;
+}
+
+/* To make sure my transitions come back smoothish */
+a,
+.firstwork h2,
+.secondarywork h2,
+.firstwork img,
+.secondarywork img {
+    transition: 0.3s ease-out;
 }
 
 /* link style */
@@ -125,9 +134,8 @@ nav li {
 .secondarywork img {
     position: absolute;
     width: 100%;
-    margin: 0 auto;
     top: 0;
-    scale: 1.4;
+    scale: 1.1;
     filter: blur(6px) grayscale(1) brightness(60%);
 }
 
