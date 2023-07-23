@@ -10,7 +10,7 @@
     /* grid height relative to view width */
     --gridheight: 30vw;
     --sectionpadding: 80px;
-    --globalborder: 8px solid #161616;
+    --globaltransition: 0.3s ease-out;
 }
 
 body {
@@ -23,7 +23,7 @@ a,
 .secondarywork h2,
 .firstwork img,
 .secondarywork img {
-    transition: 0.3s ease-out;
+    transition: var(--globaltransition);
 }
 
 /* link style */
@@ -36,7 +36,7 @@ a {
 a:hover {
     color: var(--complementarycolor);
     font-size: 110%;
-    transition: 0.5s;
+    transition: var(--globaltransition);
 }
 
 header {
@@ -84,12 +84,10 @@ nav li {
 #aboutme img {
     position: relative;
     height: 100%;
-    border: var(--globalborder);
 }
 
 #aboutme p {
     background-color: var(--secondarycolor);
-    border: var(--globalborder);
     font-size: 2vw;
     padding: 7%;
     height: 100%;
@@ -127,7 +125,7 @@ nav li {
     bottom: 5%;
     font-size: 1.6vw;
     right: 0;
-    transition: 0.3s;
+    transition: var(--globaltransition);
 }
 
 .firstwork img,
@@ -142,7 +140,7 @@ nav li {
 .firstwork:hover img,
 .secondarywork section:hover img {
     scale: 1;
-    transition: 0.3s ease-out;
+    transition: var(--globaltransition);
     filter: blur(0px) grayscale(0) brightness(100%);
 }
 
@@ -161,12 +159,6 @@ nav li {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, var(--gridheight));
     padding: calc(var(--sectionpadding)/2) 0;
-}
-
-.firstwork,
-.secondarywork section {
-    border: var(--globalborder);
-    background-color: var(--secondarycolor);
 }
 
 footer {
@@ -221,6 +213,10 @@ footer h3 {
 
     #aboutme img {
         margin-left: calc(50% - 150px);
+    }
+
+    #aboutme p {
+        font-size: 24px;
     }
 
     .firstwork {
