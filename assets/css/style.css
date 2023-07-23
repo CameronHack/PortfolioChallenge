@@ -8,7 +8,7 @@
     --secondarycolor: #e7e7e7;
     --complementarycolor: #8992e7;
     /* grid height relative to view width */
-    --myworkgridheight: 30vw;
+    --gridheight: 30vw;
     --sectionpadding: 80px;
     --globalborder: 8px solid var(--complementarycolor);
 }
@@ -17,12 +17,13 @@ body {
     background-color: beige;
 }
 
-/*  */
+/* link style */
 a {
     text-decoration: none;
     color: #fff;
 }
 
+/* link hover */
 a:hover {
     color: var(--complementarycolor);
     font-size: 110%;
@@ -34,8 +35,10 @@ header {
     background-color: var(--primarycolor);
 }
 
+/* name top left */
 header h1 {
     position: relative;
+    /* without this the margin from my name breaks my links for some reason! */
     display: inline;
     font-size: 42px;
     color: #fff;
@@ -43,10 +46,12 @@ header h1 {
     left: 40px;
 }
 
+/* Hack */
 header span {
     color: var(--complementarycolor);
 }
 
+/* flex the ul inside nav makes thing work and stuff */
 header ul {
     display: flex;
     justify-content: end;
@@ -57,12 +62,13 @@ nav li {
     padding-right: 40px;
 }
 
+/* about me stays main focus on landscape due to gridheight variable happy with the turnout dont change */
 #aboutme {
     display: grid;
     gap: 2%;
     padding: var(--sectionpadding);
     grid-template-columns: 1fr 6fr;
-    grid-template-rows: var(--myworkgridheight);
+    grid-template-rows: var(--gridheight);
 }
 
 #aboutme img {
@@ -88,14 +94,14 @@ nav li {
 }
 
 .firstwork {
-    height: var(--myworkgridheight);
+    height: var(--gridheight);
 }
 
 .secondarywork {
     display: grid;
     gap: calc(var(--sectionpadding)/2);
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, var(--myworkgridheight));
+    grid-template-rows: repeat(2, var(--gridheight));
     padding: calc(var(--sectionpadding)/2) 0;
 }
 
@@ -144,21 +150,26 @@ footer h3 {
         font-size: 24px;
         padding-right: 30px;
     }
+
     #aboutme,
     #mywork {
         padding: calc(var(--sectionpadding)/2);
     }
+
     #aboutme {
         grid-template-columns: 1fr;
         grid-template-rows: 400px;
     }
+
     #aboutme img {
         margin-left: calc(50% - 150px);
     }
+
     .secondarywork {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, var(--myworkgridheight));
+        grid-template-rows: repeat(4, var(--gridheight));
     }
+
     #contact {
         grid-template-columns: 1fr;
         padding: 10px 0 0 0;
@@ -169,10 +180,12 @@ footer h3 {
     header {
         height: 80px;
     }
+
     header h1 {
         font-size: 30px;
         left: 20px;
     }
+
     nav li {
         font-size: 20px;
         padding-right: 25px;
