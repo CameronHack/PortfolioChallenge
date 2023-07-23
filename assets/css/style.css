@@ -5,20 +5,27 @@
 :root {
     /* color pallet */
     --primarycolor: #202f3a;
-    --secondarycolor: #383838;
+    --secondarycolor: #161616;
     --complementarycolor: #8992e7;
+    --fontcolor: #fff;
     /* grid height relative to view width */
     --gridheight: 30vw;
+    /* easily tweek padding but its solid at 80px so dont touch */
     --sectionpadding: 80px;
-    --globaltransition: 0.3s ease-out;
+    /* used for transitions and site flow */
+    --globaltransition: 300ms ease-out;
 }
 
+/* site background */
 body {
     background-color: #1f1f1f;
 }
 
-/* To make sure my transitions come back smoothish */
+/* make sure transitions come back smoothish / general site flow */
 a,
+header,
+header h1,
+header li,
 .firstwork h2,
 .secondarywork h2,
 .firstwork img,
@@ -29,7 +36,7 @@ a,
 /* link style */
 a {
     text-decoration: none;
-    color: #fff;
+    color: var(--fontcolor);
 }
 
 /* link hover */
@@ -50,7 +57,7 @@ header h1 {
     /* without this the margin from my name breaks my links for some reason! */
     display: inline;
     font-size: 42px;
-    color: #fff;
+    color: var(--fontcolor);
     top: 30%;
     left: 40px;
 }
@@ -88,6 +95,7 @@ nav li {
 
 #aboutme p {
     background-color: var(--secondarycolor);
+    color: var(--fontcolor);
     font-size: 2vw;
     padding: 7%;
     height: 100%;
@@ -107,8 +115,8 @@ nav li {
 /* name of project in work cards */
 .firstwork h2,
 .secondarywork h2 {
-    background: linear-gradient(90deg, #ffffff00, #4b4b4b);
-    backdrop-filter: blur(5px);
+    background: linear-gradient(90deg, #ffffff00, #00000044);
+    backdrop-filter: blur(2px);
     position: absolute;
     height: auto;
     width: auto;
@@ -123,7 +131,7 @@ nav li {
 .firstwork:hover h2,
 .secondarywork section:hover h2 {
     bottom: 5%;
-    font-size: 1.6vw;
+    font-size: 2vw;
     right: 0;
     transition: var(--globaltransition);
 }
@@ -169,7 +177,7 @@ footer {
 
 footer h2,
 footer h3 {
-    color: #fff;
+    color: var(--fontcolor);
 }
 
 #contact {
