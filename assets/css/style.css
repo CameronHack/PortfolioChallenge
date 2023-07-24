@@ -11,7 +11,7 @@
     /* grid height relative to view width */
     --gridheight: 30vw;
     /* easily tweek padding but its solid at 80px so dont touch */
-    --sectionpadding: 80px;
+    --sectionpadding: 120px;
     /* used for transitions and site flow */
     --globaltransition: 300ms ease-out;
 }
@@ -78,33 +78,71 @@ nav li {
     padding-right: 40px;
 }
 
-/* about me stays main focus on landscape due to gridheight variable happy with the turnout DONT CHANGE */
+/* headings for the aboutme and mywork sections */
+.sectionheading {
+    position: relative;
+    text-align: center;
+    padding: calc(var(--sectionpadding)/3);
+    font-size: 2vw;
+    color: var(--complementarycolor);
+    border-top: 3px solid var(--complementarycolor);
+    border-bottom: 3px solid var(--complementarycolor);
+}
+
+#aboutme .sectionheading {
+    position: relative;
+    width: 100%;
+}
+
+/* about me stays main focus on fullscreen due to gridheight variable being relative to view width. happy with the result DONT CHANGE */
 #aboutme {
     display: grid;
     gap: calc(var(--sectionpadding)/2);
     padding: var(--sectionpadding);
-    /* 6fr is probably unnecessary although works as intended */
+    /* 6fr is probably unnecessary although works as intended throughout */
     grid-template-columns: 1fr 6fr;
     grid-template-rows: var(--gridheight);
 }
 
+/* weird way to target the paragraph block so the height scales correctly and my secondarycolor variable works */
+#aboutme section:nth-child(2) {
+    background-color: var(--secondarycolor);
+    height: 100%;
+}
+
+/* my face */
 #aboutme img {
     position: relative;
     height: 100%;
 }
 
+/* about me paragraph */
 #aboutme p {
-    background-color: var(--secondarycolor);
     color: var(--fontcolor);
     font-size: 2vw;
-    padding: 7%;
-    height: 100%;
+    padding: 5%;
+    line-height: 120%;
 }
 
 #mywork {
     padding: 0 var(--sectionpadding);
 }
 
+/* primarily displayed work card */
+.firstwork {
+    height: var(--gridheight);
+}
+
+/* secondary work cards */
+.secondarywork {
+    display: grid;
+    gap: calc(var(--sectionpadding)/3);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, calc(var(--gridheight)/1.5));
+    padding: calc(var(--sectionpadding)/2) 0;
+}
+
+/* hides any cutoff from my pictures */
 .firstwork,
 .secondarywork,
 .secondarywork section {
@@ -115,17 +153,15 @@ nav li {
 /* name of project in work cards */
 .firstwork h2,
 .secondarywork h2 {
+    z-index: 1;
     background: linear-gradient(90deg, #ffffff00, #00000044);
     backdrop-filter: blur(2px);
     position: absolute;
-    height: auto;
-    width: auto;
     font-size: 3vw;
     color: var(--complementarycolor);
-    padding: 20px;
+    padding: 10px;
     bottom: 5%;
     right: 0;
-    z-index: 1;
 }
 
 .firstwork:hover h2,
@@ -136,6 +172,7 @@ nav li {
     transition: var(--globaltransition);
 }
 
+/* images of website I made inside mywork cards */
 .firstwork img,
 .secondarywork img {
     position: absolute;
@@ -154,25 +191,15 @@ nav li {
 
 /* this is to fix some positioning of 4th child image */
 .secondarywork section:nth-child(4) img {
-    top: -55%;
+    top: -80%;
 }
 
-.firstwork {
-    height: var(--gridheight);
-}
-
-.secondarywork {
-    display: grid;
-    gap: calc(var(--sectionpadding)/2);
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, var(--gridheight));
-    padding: calc(var(--sectionpadding)/2) 0;
-}
-
+/* footer contains my contact info */
 footer {
     height: 200px;
     width: 100%;
     background-color: var(--primarycolor);
+    box-shadow: inset 0 -20px var(--complementarycolor);
 }
 
 footer h2,
@@ -194,64 +221,102 @@ footer h3 {
 }
 
 #contact h2 {
-    font-size: 48px;
+    font-size: 3.6vw;
 }
 
 #contact a,
 #contact h3 {
-    font-size: 22px;
-    padding: 2%;
+    font-size: 1.6vw;
+    padding: 0 4%;
 }
 
 @media screen and (orientation:portrait) {
+    /* reduce nav links by a little */
     nav li {
         font-size: 24px;
         padding-right: 30px;
     }
 
+    /* divide variable sectionpadding by 2 so aboutme and work scale better to portrait */
     #aboutme,
     #mywork {
         padding: calc(var(--sectionpadding)/2);
     }
 
+    /* scales heading font to portrait */
+    .sectionheading {
+        font-size: 4vw;
+    }
+
+    /* display aboutme vertical */
     #aboutme {
         grid-template-columns: 1fr;
         grid-template-rows: 400px;
     }
 
+    /* centers my face while in portrait there may be a better way */
     #aboutme img {
         margin-left: calc(50% - 150px);
     }
 
+    /* aboutme legible font size for portrait */
     #aboutme p {
         font-size: 24px;
     }
 
+    /* since all work is displayed one after another this multiplies my first works variable gridheight by 3 */
     .firstwork {
-        height: calc(var(--gridheight)*3);
+        height: calc(var(--gridheight)*2);
     }
 
+    /* display work section vertical */
     .secondarywork {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, calc(var(--gridheight)*2));
+        grid-template-rows: repeat(4, calc(var(--gridheight)*1.5));
     }
 
+    /* better scaling for work card titles while in portrait */
+    .firstwork h2,
+    .secondarywork h2 {
+    font-size: 6vw;
+    }
+
+    .firstwork:hover h2,
+    .secondarywork section:hover h2 {
+        font-size: 4vw;
+    }
+
+    /* display contact vertical */
     #contact {
         grid-template-columns: 1fr;
         padding: 10px 0 0 0;
     }
+
+    /* reduce contact info font */
+    #contact h2 {
+        font-size: 5vw;
+    }
+    
+    #contact a,
+    #contact h3 {
+        font-size: 2.5vw;
+        padding: 1% 4%;
+    }
 }
 
 @media screen and (max-width: 768px) {
+    /* reduce header */
     header {
         height: 80px;
     }
 
+    /* reduce name */
     header h1 {
         font-size: 30px;
         left: 20px;
     }
 
+    /* reduce nav links again */
     nav li {
         font-size: 20px;
         padding-right: 25px;
