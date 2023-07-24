@@ -3,14 +3,14 @@
 }
 
 :root {
-    /* color pallet */
-    --primarycolor: #202f3a;
+    /* color palette */
+    --primarycolor: #272736;
     --secondarycolor: #161616;
     --complementarycolor: #8992e7;
     --fontcolor: #fff;
     /* grid height relative to view width */
     --gridheight: 30vw;
-    /* easily tweek padding but its solid at 80px so dont touch */
+    /* easily tweek padding */
     --sectionpadding: 10vw;
     /* used for transitions and site flow */
     --globaltransition: 300ms ease-out;
@@ -187,11 +187,6 @@ nav li {
     scale: 1;
     transition: var(--globaltransition);
     filter: blur(0px) grayscale(0) brightness(100%);
-}
-
-/* this is to fix some positioning of 4th child image */
-.secondarywork section:nth-child(4) img {
-    top: -80%;
 }
 
 /* footer contains my contact info */
