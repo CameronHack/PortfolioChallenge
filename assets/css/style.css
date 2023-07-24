@@ -67,12 +67,13 @@ header span {
     color: var(--complementarycolor);
 }
 
-/* flex the ul inside nav makes thing work and stuff */
+/* flex the ul inside nav */
 header ul {
     display: flex;
     justify-content: end;
 }
 
+/* nav links size and padding */
 nav li {
     font-size: 28px;
     padding-right: 40px;
@@ -82,16 +83,11 @@ nav li {
 .sectionheading {
     position: relative;
     text-align: center;
-    padding: calc(var(--sectionpadding)/3);
+    padding: calc(var(--sectionpadding)/6);
     font-size: 2vw;
     color: var(--complementarycolor);
     border-top: 3px solid var(--complementarycolor);
     border-bottom: 3px solid var(--complementarycolor);
-}
-
-#aboutme .sectionheading {
-    position: relative;
-    width: 100%;
 }
 
 /* about me stays main focus on fullscreen due to gridheight variable being relative to view width. happy with the result DONT CHANGE */
@@ -113,6 +109,8 @@ nav li {
 /* my face */
 #aboutme img {
     position: relative;
+    /* this is necessary for portrait but doesn't hurt here */
+    display: block;
     height: 100%;
 }
 
@@ -157,7 +155,7 @@ nav li {
     background: linear-gradient(90deg, #ffffff00, #00000044);
     backdrop-filter: blur(2px);
     position: absolute;
-    font-size: 3vw;
+    font-size: 2.8vw;
     color: var(--complementarycolor);
     padding: 10px;
     bottom: 5%;
@@ -202,6 +200,7 @@ footer h3 {
     color: var(--fontcolor);
 }
 
+/* displays contact in a grid */
 #contact {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -209,16 +208,19 @@ footer h3 {
     padding: 50px 60px 0 80px;
 }
 
+/* displays my email number and github in flex */
 #contact section {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* "Contact me" size */
 #contact h2 {
     font-size: 3.6vw;
 }
 
+/* contact info size */
 #contact a,
 #contact h3 {
     font-size: 1.6vw;
@@ -226,6 +228,7 @@ footer h3 {
 }
 
 @media screen and (orientation:portrait) {
+
     /* reduce nav links by a little */
     nav li {
         font-size: 24px;
@@ -238,7 +241,7 @@ footer h3 {
         padding: calc(var(--sectionpadding)/2);
     }
 
-    /* scales heading font to portrait */
+    /* scales section heading font to portrait */
     .sectionheading {
         font-size: 4vw;
     }
@@ -249,9 +252,9 @@ footer h3 {
         grid-template-rows: 400px;
     }
 
-    /* centers my face while in portrait there may be a better way */
+    /* centers my face while in portrait */
     #aboutme img {
-        margin-left: calc(50% - 150px);
+        margin: 0 auto;
     }
 
     /* aboutme legible font size for portrait */
@@ -259,7 +262,7 @@ footer h3 {
         font-size: 24px;
     }
 
-    /* since all work is displayed one after another this multiplies my first works variable gridheight by 3 */
+    /* since all work is displayed one after another this multiplies my first works variable gridheight by 2 so it is the center of attention */
     .firstwork {
         height: calc(var(--gridheight)*2);
     }
@@ -273,7 +276,7 @@ footer h3 {
     /* better scaling for work card titles while in portrait */
     .firstwork h2,
     .secondarywork h2 {
-    font-size: 6vw;
+        font-size: 6vw;
     }
 
     .firstwork:hover h2,
@@ -287,11 +290,12 @@ footer h3 {
         padding: 10px 0 0 0;
     }
 
-    /* reduce contact info font */
+    /* "Contact me" size */
     #contact h2 {
         font-size: 5vw;
     }
-    
+
+    /* contact info size */
     #contact a,
     #contact h3 {
         font-size: 2.5vw;
@@ -300,6 +304,7 @@ footer h3 {
 }
 
 @media screen and (max-width: 768px) {
+
     /* reduce header */
     header {
         height: 80px;
@@ -312,7 +317,7 @@ footer h3 {
         top: 10px;
         left: calc(50% - 98px);
     }
-    
+
     /* nav links go center */
     header ul {
         justify-content: center;
@@ -326,11 +331,12 @@ footer h3 {
         padding: 0 25px;
     }
 
-    /* increase contact info font */
+    /* "Contact me" size */
     #contact h2 {
         font-size: 6vw;
     }
-    
+
+    /* contact info size */
     #contact a,
     #contact h3 {
         font-size: 3.5vw;
