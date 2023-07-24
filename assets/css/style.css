@@ -11,7 +11,7 @@
     /* grid height relative to view width */
     --gridheight: 30vw;
     /* easily tweek padding but its solid at 80px so dont touch */
-    --sectionpadding: 120px;
+    --sectionpadding: 10vw;
     /* used for transitions and site flow */
     --globaltransition: 300ms ease-out;
 }
@@ -136,10 +136,10 @@ nav li {
 /* secondary work cards */
 .secondarywork {
     display: grid;
-    gap: calc(var(--sectionpadding)/3);
+    gap: calc(var(--sectionpadding)/4);
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, calc(var(--gridheight)/1.5));
-    padding: calc(var(--sectionpadding)/2) 0;
+    padding: calc(var(--sectionpadding)/4) 0;
 }
 
 /* hides any cutoff from my pictures */
@@ -321,4 +321,15 @@ footer h3 {
         font-size: 20px;
         padding-right: 25px;
     }
+
+        /* reduce contact info font */
+        #contact h2 {
+            font-size: 6vw;
+        }
+        
+        #contact a,
+        #contact h3 {
+            font-size: 3.5vw;
+            padding: 1% 3%;
+        }
 }
